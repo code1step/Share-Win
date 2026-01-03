@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ========================================== -->
+    <!-- CRITICAL: WHATSAPP/FACEBOOK LINK PREVIEW -->
+    <!-- ========================================== -->
+    <title>🎁 Share & Win Game - Win ₹10,000 Cash</title>
+    
+    <!-- Open Graph - WhatsApp/FB/Instagram Preview -->
+    <meta property="og:title" content="🎁 WIN ₹10,000 CASH - Share & Win Game">
+    <meta property="og:description" content="Share with friends & win ₹10,000! Complete quick tasks, earn points, win cash prizes. Free to play!">
+    <meta property="og:image" content="thumbnail.jpg"> <!-- Your image name -->
+    <meta property="og:url" content="YOUR_LINK_HERE"> <!-- Your actual link -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Share & Win Game">
+    
+    <!-- ========================================== -->
+    <!-- BROWSER APPEARANCE -->
+    <!-- ========================================== -->
+    <!-- Favicon for browser tab -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Mobile home screen icon -->
+    <link rel="apple-touch-icon" href="icon.png">
+    
+    <!-- ========================================== -->
+    <!-- STYLES & ICONS -->
+    <!-- ========================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+    /* All your existing CSS here */
+    </style>
+</head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c 0%, #2a3c8f 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .prize-badge {
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            color: #000;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, #fff, #FFD700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        /* Unified Points & Progress Container */
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .points-display {
+            text-align: left;
+        }
+        
+        .points-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            line-height: 1;
+        }
+        
+        .points-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .tasks-display {
+            text-align: right;
+        }
+        
+        .tasks-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4ECDC4;
+        }
+        
+        .tasks-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .progress-bar-container {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(to right, #00b09b, #96c93d);
+            width: 0%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .milestones {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 15px;
+        }
+        
+        .milestone {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .milestone-icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .milestone.active .milestone-icon {
+            color: #FFD700;
+        }
+        
+        .milestone-points {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        
+        .milestone-prize {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+        
+        .tasks-container {
+            margin-bottom: 20px;
+        }
+        
+        .task {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .task:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        .task.completed {
+            background: rgba(46, 204, 113, 0.15);
+            border-color: rgba(46, 204, 113, 0.3);
+        }
+        
+        .task-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+        
+        .instagram { background: linear-gradient(45deg, #405DE6, #E1306C); }
+        .youtube { background: linear-gradient(45deg, #FF0000, #FF3333); }
+        .facebook { background: linear-gradient(45deg, #1877F2, #0A5BC4); }
+        .whatsapp { background: linear-gradient(45deg, #25D366, #128C7E); }
+        
+        .task-content {
+            flex: 1;
+        }
+        
+        .task-name {
+            font-weight: bold;
+            margin-bottom: 3px;
+            font-size: 1rem;
+        }
+        
+        .task-status {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .task-points {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #FFD700;
+            text-align: right;
+            min-width: 70px;
+        }
+        
+        .task.completed .task-points {
+            color: #2ecc71;
+        }
+        
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #FF416C, #FF4B2B);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a2a6c 0%, #2a3c8f 100%);
+            border-radius: 25px;
+            padding: 25px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: bounce 1s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+        
+        .modal-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        
+        .modal-body {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .btn-modal {
+            flex: 1;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        
+        .btn-success {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+            color: white;
+        }
+        
+        .btn-warning {
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            color: #000;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #FFD700;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            line-height: 1.3;
+        }
+        
+        .platform-emoji {
+            font-size: 1.5rem;
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 500px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .prize-badge {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+            
+            .points-value {
+                font-size: 2rem;
+            }
+            
+            .tasks-value {
+                font-size: 1.7rem;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- Updated Prize Amounts -->
+            <div class="prize-badge">
+                <i class="fas fa-trophy"></i> WIN ₹10,000
+            </div>
+            <h1>FOLLOW & WIN</h1>
+            <p class="subtitle">Complete tasks → Earn points → Win prizes</p>
+        </div>
+        
+        <!-- Unified Points & Progress Container -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <div class="points-display">
+                    <div class="points-value" id="currentPoints">0</div>
+                    <div class="points-label">POINTS EARNED</div>
+                </div>
+                <div class="tasks-display">
+                    <div class="tasks-value" id="completedTasks">0/4</div>
+                    <div class="tasks-label">TASKS COMPLETED</div>
+                </div>
+            </div>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+            <div style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px; text-align: right;" id="progressText">
+                0% Complete
+            </div>
+        </div>
+        
+        <!-- Milestones with Clear Point Labels -->
+        <div class="milestones">
+            <div class="milestone" id="milestone25">
+                <div class="milestone-icon">🎫</div>
+                <div class="milestone-points">25 points</div>
+                <div class="milestone-prize">Entry Level</div>
+            </div>
+            <div class="milestone" id="milestone70">
+                <div class="milestone-icon">💰</div>
+                <div class="milestone-points">70 points</div>
+                <!-- Updated Prize Amount -->
+                <div class="milestone-prize">₹5,000 Pool</div>
+            </div>
+            <div class="milestone" id="milestone100">
+                <div class="milestone-icon">🏆</div>
+                <div class="milestone-points">100 points</div>
+                <!-- Updated Prize Amount -->
+                <div class="milestone-prize">₹10,000 Pool</div>
+            </div>
+        </div>
+        
+        <!-- Tasks with Clear Point Labels -->
+        <div class="tasks-container">
+            <div class="task" id="instagramTask" onclick="startSocialTask('instagram')">
+                <div class="task-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="task-content">
+                    <div class="task-name">Follow Instagram</div>
+                    <div class="task-status" id="instagramStatus">Tap to follow</div>
+                </div>
+                <!-- Updated: Added "points" text -->
+                <div class="task-points" id="instagramPoints">+30 points</div>
+            </div>
+            
+            <div class="task" id="youtubeTask" onclick="startSocialTask('youtube')">
+                <div class="task-icon youtube">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="task-content">
+                    <div class="task-name">Subscribe YouTube</div>
+                    <div class="task-status" id="youtubeStatus">Tap to subscribe</div>
+                </div>
+                <!-- Updated: Added "points" text -->
+                <div class="task-points" id="youtubePoints">+15 points</div>
+            </div>
+            
+            <div class="task" id="facebookTask" onclick="startSocialTask('facebook')">
+                <div class="task-icon facebook">
+                    <i class="fab fa-facebook"></i>
+                </div>
+                <div class="task-content">
+                    <div class="task-name">Follow Facebook</div>
+                    <div class="task-status" id="facebookStatus">Tap to follow</div>
+                </div>
+                <!-- Updated: Added "points" text -->
+                <div class="task-points" id="facebookPoints">+15 points</div>
+            </div>
+            
+            <div class="task" id="whatsappTask" onclick="startSocialTask('whatsapp')">
+                <div class="task-icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="task-content">
+                    <div class="task-name">Share with Friends</div>
+                    <div class="task-status" id="whatsappStatus">Tap to share</div>
+                </div>
+                <!-- Updated: Added "points" text -->
+                <div class="task-points" id="whatsappPoints">+40 points</div>
+            </div>
+        </div>
+        
+        <!-- Actions -->
+        <div class="actions">
+            <button class="btn btn-primary" onclick="openClaimForm()">
+                <i class="fas fa-gift"></i> CLAIM PRIZE
+            </button>
+            <button class="btn btn-secondary" onclick="shareGame()">
+                <i class="fas fa-share-alt"></i> SHARE GAME
+            </button>
+        </div>
+        
+        <div class="footer">
+            <p>Chance to win. Winners selected randomly.</p>
+        </div>
+    </div>
+
+    <!-- Social Task Instructions Modal -->
+    <div class="modal" id="instructionsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon" id="instructionsIcon">📱</div>
+                <h2 class="modal-title" id="instructionsTitle">Follow on Instagram</h2>
+                <div class="modal-subtitle" id="instructionsSubtitle">
+                    Follow our Instagram account to earn <span style="color: #FFD700;">+30 points</span>
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 12px; margin-bottom: 15px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <span class="platform-emoji">📌</span>
+                        <span style="font-weight: bold;">Account: </span>
+                        <span id="platformUsername" style="color: #FFD700; margin-left: 5px;">@code1steptech</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="platform-emoji">🔗</span>
+                        <span style="font-weight: bold;">Link: </span>
+                        <span id="platformLink" style="color: #4ECDC4; margin-left: 5px; font-size: 0.9rem; word-break: break-all;">
+                            instagram.com/code1steptech
+                        </span>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 12px; border-left: 4px solid #FFD700;">
+                    <div style="display: flex; align-items: start; margin-bottom: 10px;">
+                        <span class="platform-emoji">🚀</span>
+                        <div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Instructions:</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">
+                                1. Click <strong style="color: #FFD700;">"Open Platform"</strong> below<br>
+                                2. Follow our account<br>
+                                3. Return to this page<br>
+                                4. Click <strong style="color: #2ecc71;">"I Followed"</strong> to get points
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary btn-modal" onclick="closeInstructionsModal()">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+                <button type="button" class="btn btn-warning btn-modal" onclick="openSocialPlatform()">
+                    <i class="fas fa-external-link-alt"></i> Open Platform
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Follow Confirmation Modal -->
+    <div class="modal" id="followConfirmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon" style="color: #2ecc71;">✅</div>
+                <h2 class="modal-title">Great Job!</h2>
+                <div class="modal-subtitle">
+                    Did you successfully follow our account?
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 4rem; margin-bottom: 15px;" id="confirmEmoji">🤔</div>
+                    <div style="font-size: 1.1rem; margin-bottom: 10px;">
+                        You can earn <span style="color: #FFD700; font-weight: bold;" id="confirmPoints">+30 points</span>
+                    </div>
+                    <div style="opacity: 0.8; font-size: 0.9rem;">
+                        Confirm only if you actually followed
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary btn-modal" onclick="closeFollowConfirmModal(false)">
+                    <i class="fas fa-redo"></i> Try Again
+                </button>
+                <button type="button" class="btn btn-success btn-modal" onclick="closeFollowConfirmModal(true)">
+                    <i class="fas fa-check"></i> Yes, I Followed!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Points Added Modal -->
+    <div class="modal" id="pointsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon" style="color: #FFD700;">🎉</div>
+                <h2 class="modal-title">Points Added!</h2>
+            </div>
+            
+            <div class="modal-body">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 5rem; margin-bottom: 15px;" id="pointsEmoji">⭐</div>
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">
+                        <span style="color: #FFD700; font-weight: bold;" id="pointsAmount">+30 points</span>
+                    </div>
+                    <div style="opacity: 0.8; font-size: 1rem;" id="pointsMessage">
+                        Keep completing tasks to earn more!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button type="button" class="btn btn-success btn-modal" onclick="closePointsModal()">
+                    <i class="fas fa-check"></i> Awesome!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Claim Prize Form Modal -->
+    <div class="modal" id="claimModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-gift modal-icon"></i>
+                <h2 class="modal-title">Claim Your Prize</h2>
+                <p class="modal-subtitle">Enter your details to enter the prize draw</p>
+            </div>
+            
+            <form id="prizeClaimForm" onsubmit="submitClaimForm(event)">
+                <div class="form-group">
+                    <label for="userName">Full Name *</label>
+                    <input type="text" id="userName" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="userPhone">Phone Number *</label>
+                    <input type="tel" id="userPhone" required placeholder="Enter your 10-digit number">
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary btn-modal" onclick="closeModal('claimModal')">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-success btn-modal">
+                        <i class="fas fa-check"></i> Get Prize
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-trophy modal-icon"></i>
+                <h2 class="modal-title">CONGRATULATIONS!</h2>
+                <p class="modal-subtitle" id="successMessage"></p>
+            </div>
+            
+            <div class="modal-body">
+                <div style="text-align: center;">
+                    <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 25px;">
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: rgba(46, 204, 113, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                                <i class="fas fa-medal" style="font-size: 1.8rem; color: #2ecc71;"></i>
+                            </div>
+                            <div style="font-size: 0.9rem;">Eligible</div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: rgba(52, 152, 219, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                                <i class="fas fa-users" style="font-size: 1.8rem; color: #3498db;"></i>
+                            </div>
+                            <div style="font-size: 0.9rem;">Random Draw</div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: rgba(155, 89, 182, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                                <i class="fas fa-bell" style="font-size: 1.8rem; color: #9b59b6;"></i>
+                            </div>
+                            <div style="font-size: 0.9rem;">Notification</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #FFD700;">
+                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                            <span class="platform-emoji">🏅</span>
+                            <span>Your Points: <strong id="userPointsEarned" style="color: #FFD700;">0 points</strong></span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <span class="platform-emoji">💰</span>
+                            <span>Prize Pool: <strong id="qualifiedPrizePool" style="color: #4ECDC4;">Entry Level</strong></span>
+                        </div>
+                    </div>
+                    
+                    <div style="font-size: 0.9rem; opacity: 0.9; line-height: 1.5;">
+                        <span style="color: #FFD700;">⚠️ Important:</span> You will be rewarded only if selected as winner.
+                    </div>
+                    
+                    <!-- Added: Data Collection Note -->
+                    <div style="background: rgba(52, 152, 219, 0.1); padding: 12px; border-radius: 10px; margin-top: 15px; border-left: 4px solid #3498db; font-size: 0.85rem;">
+                        <div style="display: flex; align-items: center;">
+                            <span class="platform-emoji">💾</span>
+                            <span>Your details have been saved for the prize draw.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button type="button" class="btn btn-success btn-modal" onclick="closeModal('successModal')">
+                    <i class="fas fa-check"></i> Got It!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Collection in Progress Modal -->
+    <div class="modal" id="dataModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon" style="color: #3498db;">💾</div>
+                <h2 class="modal-title">Saving Your Data</h2>
+            </div>
+            
+            <div class="modal-body">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 4rem; margin-bottom: 15px;">⏳</div>
+                    <div style="font-size: 1.1rem; margin-bottom: 10px;">
+                        Saving your details for the prize draw...
+                    </div>
+                    <div style="opacity: 0.8; font-size: 0.9rem;">
+                        Please don't close this window
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const socialMediaLinks = {
+            instagram: "https://www.instagram.com/code1steptech/",
+            youtube: "https://youtube.com/@code1step",
+            facebook: "https://www.facebook.com/share/1DArNWFKdJ/"
+        };
+        
+        const socialUsernames = {
+            instagram: "@code1steptech",
+            youtube: "@code1step", 
+            facebook: "@code1step"
+        };
+        
+    const platformEmojis = {
+    instagram: '<i class="fab fa-instagram"></i>',
+    youtube: '<i class="fab fa-youtube"></i>',
+    facebook: '<i class="fab fa-facebook-f"></i>',
+    whatsapp: '<i class="fab fa-whatsapp"></i>'
+};
+
+const platformColors = {
+    instagram: '#E1306C',  // Instagram pink
+    youtube: '#FF0000',     // YouTube red
+    facebook: '#1877F2',    // Facebook blue
+    whatsapp: '#25D366'     // WhatsApp green
+};
+
+const platformNames = {
+    instagram: "Instagram",
+    youtube: "YouTube", 
+    facebook: "Facebook",
+    whatsapp: "WhatsApp"
+};
+        
+        // Game state
+        const gameState = {
+            points: 0,
+            maxPoints: 100,
+            completedTasks: {
+                instagram: false,
+                youtube: false,
+                facebook: false,
+                whatsapp: false
+            },
+            prizeClaimed: false,
+            currentTask: null
+        };
+        
+        const taskPoints = {
+            instagram: 30,
+            youtube: 15,
+            facebook: 15,
+            whatsapp: 40
+        };
+        
+        // Updated milestones with new prize amounts
+        const milestones = {
+            25: { active: false, prize: "Entry Level" },
+            70: { active: false, prize: "₹5,000 Pool" },
+            100: { active: false, prize: "₹10,000 Pool" }
+        };
+        
+        // Google Sheets Configuration
+        // Replace this with your actual Google Apps Script Web App URL
+        const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxI-kInQvkNChuxtMAqjI9y75VnV6kBIIWXNAhTKvJQ805yUX8HSn5IF7HM8fDhYS47/exec";
+        
+        // Initialize the game
+        document.addEventListener('DOMContentLoaded', function() {
+            restoreGameState();
+            updateUI();
+            checkReturnFromSocial();
+        });
+        
+        function restoreGameState() {
+            const savedState = localStorage.getItem('followWinGameState');
+            if (savedState) {
+                const parsed = JSON.parse(savedState);
+                gameState.points = parsed.points || 0;
+                gameState.completedTasks = parsed.completedTasks || gameState.completedTasks;
+                gameState.prizeClaimed = parsed.prizeClaimed || false;
+            }
+        }
+        
+        function saveGameState() {
+            localStorage.setItem('followWinGameState', JSON.stringify({
+                points: gameState.points,
+                completedTasks: gameState.completedTasks,
+                prizeClaimed: gameState.prizeClaimed
+            }));
+        }
+        
+        function checkReturnFromSocial() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const task = urlParams.get('task');
+            const returning = urlParams.get('return');
+            
+            if (returning === 'true' && task && !gameState.completedTasks[task]) {
+                setTimeout(() => {
+                    showFollowConfirmModal(task);
+                }, 500);
+                
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+        
+        function startSocialTask(platform) {
+            if (gameState.completedTasks[platform]) {
+                showPointsModal(platform, true);
+                return;
+            }
+            
+            gameState.currentTask = platform;
+            
+            if (platform === 'whatsapp') {
+                showWhatsAppInstructions();
+            } else {
+                showInstructionsModal(platform);
+            }
+        }
+        
+// Update the showInstructionsModal function:
+function showInstructionsModal(platform) {
+    const platformName = platformNames[platform];
+    const username = socialUsernames[platform];
+    const points = taskPoints[platform];
+    
+    // Use actual platform icon instead of emoji
+    let platformIcon = '';
+    let iconColor = '';
+    
+    switch(platform) {
+        case 'instagram':
+            platformIcon = '<i class="fab fa-instagram" style="color: #E1306C; font-size: 3.5rem;"></i>';
+            iconColor = '#E1306C';
+            break;
+        case 'youtube':
+            platformIcon = '<i class="fab fa-youtube" style="color: #FF0000; font-size: 3.5rem;"></i>';
+            iconColor = '#FF0000';
+            break;
+        case 'facebook':
+            platformIcon = '<i class="fab fa-facebook-f" style="color: #1877F2; font-size: 3.5rem;"></i>';
+            iconColor = '#1877F2';
+            break;
+        case 'whatsapp':
+            platformIcon = '<i class="fab fa-whatsapp" style="color: #25D366; font-size: 3.5rem;"></i>';
+            iconColor = '#25D366';
+            break;
+    }
+    
+    document.getElementById('instructionsIcon').innerHTML = platformIcon;
+    document.getElementById('instructionsTitle').textContent = `${platformName} Task`;
+    document.getElementById('instructionsSubtitle').innerHTML = 
+        `Follow our ${platformName} to earn <span style="color: ${iconColor};">+${points} points</span>`;
+    document.getElementById('platformUsername').textContent = username;
+    document.getElementById('platformLink').textContent = socialMediaLinks[platform]?.replace('https://', '') || platformName;
+    
+    openModal('instructionsModal');
+}
+        
+        function closeInstructionsModal() {
+            closeModal('instructionsModal');
+            gameState.currentTask = null;
+        }
+        
+        function openSocialPlatform() {
+            const platform = gameState.currentTask;
+            if (!platform) return;
+            
+            closeModal('instructionsModal');
+            
+            const socialUrl = socialMediaLinks[platform];
+            const returnUrl = `${window.location.origin}${window.location.pathname}?task=${platform}&return=true`;
+            
+            window.open(socialUrl, '_blank');
+            
+            document.getElementById(`${platform}Status`).textContent = 'Waiting...';
+            document.getElementById(`${platform}Status`).style.color = '#FFD700';
+            
+            localStorage.setItem('returnUrl', returnUrl);
+            
+            setTimeout(() => {
+                if (!gameState.completedTasks[platform]) {
+                    document.getElementById('confirmEmoji').textContent = '⏳';
+                    showFollowConfirmModal(platform);
+                }
+            }, 3000);
+        }
+        
+function showFollowConfirmModal(platform) {
+    if (!platform) platform = gameState.currentTask;
+    if (!platform) return;
+    
+    const points = taskPoints[platform];
+    const platformName = platformNames[platform];
+    
+    // Platform-specific icons
+    let platformIcon = '';
+    let iconColor = '';
+    
+    switch(platform) {
+        case 'instagram':
+            platformIcon = '<i class="fab fa-instagram"></i>';
+            iconColor = '#E1306C';
+            break;
+        case 'youtube':
+            platformIcon = '<i class="fab fa-youtube"></i>';
+            iconColor = '#FF0000';
+            break;
+        case 'facebook':
+            platformIcon = '<i class="fab fa-facebook-f"></i>';
+            iconColor = '#1877F2';
+            break;
+        case 'whatsapp':
+            platformIcon = '<i class="fab fa-whatsapp"></i>';
+            iconColor = '#25D366';
+            break;
+    }
+    
+    // Update only the center icon (remove icon from points text)
+    document.getElementById('confirmEmoji').innerHTML = platformIcon;
+    document.getElementById('confirmEmoji').style.color = iconColor;
+    
+    // Just show points text, no icon
+    document.getElementById('confirmPoints').innerHTML = 
+        `<span style="color: ${iconColor};">+${points} points</span> from ${platformName}`;
+    
+    openModal('followConfirmModal');
+}
+        
+        function closeFollowConfirmModal(confirmed) {
+            const platform = gameState.currentTask;
+            
+            if (confirmed && platform && !gameState.completedTasks[platform]) {
+                completeTask(platform);
+                showPointsModal(platform, false);
+            } else {
+                if (platform) {
+                    document.getElementById(`${platform}Status`).textContent = 'Tap to follow';
+                    document.getElementById(`${platform}Status`).style.color = '';
+                }
+            }
+            
+            closeModal('followConfirmModal');
+            gameState.currentTask = null;
+        }
+        
+function showWhatsAppInstructions() {
+    const platform = 'whatsapp';
+    const points = taskPoints[platform];
+    
+    // Simple, catchy message for WhatsApp task
+    const shareMessage = `🎁 WIN ₹10,000 CASH PRIZE!\n\n`
+        + `Play Share & Win Game\n`
+        + `Complete simple tasks & win cash!\n\n`
+        + `${window.location.href}\n\n`
+        + `#WinCash`;
+    
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareMessage)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Update status
+    document.getElementById(`${platform}Status`).textContent = 'Waiting...';
+    document.getElementById(`${platform}Status`).style.color = '#FFD700';
+    
+    // Show confirmation after delay
+    setTimeout(() => {
+        showFollowConfirmModal(platform);
+    }, 2000);
+}
+        function completeTask(platform) {
+            if (gameState.completedTasks[platform]) return;
+            
+            gameState.completedTasks[platform] = true;
+            gameState.points += taskPoints[platform];
+            
+            const taskElement = document.getElementById(`${platform}Task`);
+            taskElement.classList.add('completed');
+            document.getElementById(`${platform}Status`).textContent = '✓ Completed';
+            document.getElementById(`${platform}Status`).style.color = '#2ecc71';
+            document.getElementById(`${platform}Points`).innerHTML = `<i class="fas fa-check"></i> ${taskPoints[platform]} points`;
+            
+            saveGameState();
+            updateUI();
+        }
+        
+        function showPointsModal(platform, alreadyCompleted = false) {
+            const points = taskPoints[platform];
+            const platformName = platformNames[platform];
+            
+            if (alreadyCompleted) {
+                document.getElementById('pointsEmoji').textContent = '✅';
+                document.getElementById('pointsAmount').textContent = `Already +${points} points`;
+                document.getElementById('pointsMessage').textContent = `You already completed ${platformName} task!`;
+            } else {
+                const emojis = ['🎉', '⭐', '🏆', '✨', '🔥'];
+                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                document.getElementById('pointsEmoji').textContent = randomEmoji;
+                document.getElementById('pointsAmount').textContent = `+${points} points`;
+                document.getElementById('pointsMessage').textContent = `Great! ${points} points added from ${platformName}!`;
+            }
+            
+            openModal('pointsModal');
+        }
+        
+        function closePointsModal() {
+            closeModal('pointsModal');
+        }
+        
+        function updateUI() {
+            document.getElementById('currentPoints').textContent = gameState.points;
+            
+            const completed = Object.values(gameState.completedTasks).filter(Boolean).length;
+            document.getElementById('completedTasks').textContent = `${completed}/4`;
+            
+            const progressPercent = (gameState.points / gameState.maxPoints) * 100;
+            document.getElementById('progressBarFill').style.width = `${progressPercent}%`;
+            document.getElementById('progressText').textContent = `${Math.round(progressPercent)}% Complete`;
+            
+            updateMilestones();
+        }
+        
+        function updateMilestones() {
+            Object.keys(milestones).forEach(points => {
+                const milestone = document.getElementById(`milestone${points}`);
+                if (gameState.points >= parseInt(points)) {
+                    milestone.classList.add('active');
+                    milestones[points].active = true;
+                } else {
+                    milestone.classList.remove('active');
+                    milestones[points].active = false;
+                }
+            });
+        }
+        
+        function openClaimForm() {
+            if (gameState.prizeClaimed) {
+                document.getElementById('pointsEmoji').textContent = '✅';
+                document.getElementById('pointsAmount').textContent = 'Already Claimed';
+                document.getElementById('pointsMessage').textContent = 'You have already submitted your claim!';
+                openModal('pointsModal');
+                return;
+            }
+            
+            if (gameState.points < 25) {
+                document.getElementById('pointsEmoji').textContent = '⚠️';
+                document.getElementById('pointsAmount').textContent = `${gameState.points}/25 points`;
+                document.getElementById('pointsMessage').textContent = 'You need at least 25 points to enter the prize draw!';
+                openModal('pointsModal');
+                return;
+            }
+            
+            openModal('claimModal');
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+        
+        async function submitClaimForm(event) {
+            event.preventDefault();
+            
+            const userName = document.getElementById('userName').value.trim();
+            const userPhone = document.getElementById('userPhone').value.trim();
+            
+            // Basic validation
+            if (!userName || !userPhone) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            if (userPhone.length !== 10 || !/^\d+$/.test(userPhone)) {
+                alert('Please enter a valid 10-digit phone number');
+                return;
+            }
+            
+            // Show saving modal
+            openModal('dataModal');
+            
+            try {
+                // Save to Google Sheets
+                const submissionData = {
+                    name: userName,
+                    phone: userPhone,
+                    points: gameState.points,
+                    timestamp: new Date().toISOString(),
+                    completedTasks: Object.keys(gameState.completedTasks).filter(task => gameState.completedTasks[task]),
+                    prizePool: getPrizePool()
+                };
+                
+                // Try to save to Google Sheets
+                const saved = await saveToGoogleSheets(submissionData);
+                
+                // Close saving modal
+                closeModal('dataModal');
+                
+                if (saved) {
+                    // Update game state
+                    closeModal('claimModal');
+                    gameState.prizeClaimed = true;
+                    
+                    // Determine prize pool
+                    const prizePool = getPrizePool();
+                    
+                    document.getElementById('userPointsEarned').textContent = `${gameState.points} points`;
+                    document.getElementById('qualifiedPrizePool').textContent = prizePool;
+                    
+                    const successMessage = prizePool.includes("₹") 
+                        ? `You've entered the ${prizePool}!` : `You've entered the prize draw!`;
+                    
+                    document.getElementById('successMessage').textContent = successMessage;
+                    openModal('successModal');
+                    
+                    // Save state
+                    saveGameState();
+                    
+                    // Also save to localStorage as backup
+                    saveToLocalStorage(submissionData);
+                } else {
+                    // Fallback: Save to localStorage only
+                    saveToLocalStorage(submissionData);
+                    
+                    closeModal('claimModal');
+                    gameState.prizeClaimed = true;
+                    
+                    const prizePool = getPrizePool();
+                    document.getElementById('userPointsEarned').textContent = `${gameState.points} points`;
+                    document.getElementById('qualifiedPrizePool').textContent = prizePool;
+                    
+                    document.getElementById('successMessage').textContent = `Entry saved locally! (Google Sheets not configured)`;
+                    openModal('successModal');
+                    
+                    saveGameState();
+                }
+                
+            } catch (error) {
+                console.error('Error saving data:', error);
+                closeModal('dataModal');
+                
+                // Fallback to localStorage
+                saveToLocalStorage({
+                    name: userName,
+                    phone: userPhone,
+                    points: gameState.points,
+                    timestamp: new Date().toISOString()
+                });
+                
+                closeModal('claimModal');
+                gameState.prizeClaimed = true;
+                
+                const prizePool = getPrizePool();
+                document.getElementById('userPointsEarned').textContent = `${gameState.points} points`;
+                document.getElementById('qualifiedPrizePool').textContent = prizePool;
+                
+                document.getElementById('successMessage').textContent = `Data saved locally (offline mode)`;
+                openModal('successModal');
+                
+                saveGameState();
+            }
+        }
+        
+        function getPrizePool() {
+            if (gameState.points >= 100) return "₹10,000 Pool";
+            if (gameState.points >= 70) return "₹5,000 Pool";
+            return "Entry Level";
+        }
+        
+        async function saveToGoogleSheets(data) {
+            // This function sends data to Google Sheets via Google Apps Script
+            try {
+                // If no Google Sheets URL is configured, return false
+                if (GOOGLE_SHEET_URL.includes("YOUR_GOOGLE_APPS_SCRIPT_ID")) {
+                    console.log("Google Sheets not configured. Using localStorage fallback.");
+                    return false;
+                }
+                
+                const response = await fetch(GOOGLE_SHEET_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Important for Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                // With no-cors mode, we can't read the response, but we assume it worked
+                console.log("Data sent to Google Sheets:", data);
+                return true;
+                
+            } catch (error) {
+                console.error("Error sending to Google Sheets:", error);
+                return false;
+            }
+        }
+        
+        function saveToLocalStorage(data) {
+            // Save submission to localStorage as backup
+            try {
+                const submissions = JSON.parse(localStorage.getItem('prizeSubmissions') || '[]');
+                submissions.push(data);
+                localStorage.setItem('prizeSubmissions', JSON.stringify(submissions));
+                console.log("Data saved to localStorage:", data);
+                return true;
+            } catch (error) {
+                console.error("Error saving to localStorage:", error);
+                return false;
+            }
+        }
+        
+function shareGame() {
+    // Even simpler message for optional sharing
+    const message = `🎁 WIN ₹10,000!\n\n`
+        + `Play this fun game: ${window.location.href}\n\n`
+        + `#WinCash`;
+    
+    // Try native share first (for mobile)
+    if (navigator.share) {
+        navigator.share({
+            title: 'Win ₹10,000 - Share & Win Game',
+            text: 'Play this game and win cash prize!',
+            url: window.location.href
+        }).catch(() => {
+            // Fallback to WhatsApp
+            window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+        });
+    } else {
+        // Direct to WhatsApp
+        window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+        
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        };
+        
+        console.log("Game initialized with all updates!");
+        console.log("To enable Google Sheets data collection:");
+        console.log("1. Create a Google Apps Script Web App");
+        console.log("2. Update the GOOGLE_SHEET_URL variable with your Web App URL");
+        console.log("3. Data will automatically be saved to Google Sheets");
+    </script>
+</body>
+</html>
